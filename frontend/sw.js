@@ -22,6 +22,14 @@ self.addEventListener('install', event => {
 
 // Fetch event - serve from cache when offline
 self.addEventListener('fetch', event => {
+  // Skip caching for API calls
+  if (event.request.url.includes('/api/') || 
+      event.request.url.includes('onrender.com') ||
+      event.request.url.includes('openweathermap.org')) {
+    // Always fetch from network for API calls
+    return fetch(event.request);
+  }
+
   event.respondWith(
     caches.match(event.request)
       .then(response => {
@@ -30,8 +38,12 @@ self.addEventListener('fetch', event => {
           return response;
         }
         return fetch(event.request);
-      }
-    )
+      })
+      .catch(error => {
+        console.error('Service worker fetch error:', error);
+        // Fallback to network if cache fails
+        return fetch(event.request);
+      })
   );
 });
 
