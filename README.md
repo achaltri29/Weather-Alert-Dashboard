@@ -121,12 +121,12 @@ docker-compose up -d
 **Step 5: Deploy**
 1. Click "Manual Deploy" → "Deploy latest commit"
 2. Wait for the build to complete
-3. Your backend will be available at: `https://weather-alert-backend.onrender.com`
+3. Your backend will be available at: `https://weather-alert-dashboard.onrender.com`
 
 **Step 6: Test Your Backend Deployment**
-- Health check: `https://weather-alert-backend.onrender.com/api/health`
-- Root endpoint: `https://weather-alert-backend.onrender.com/`
-- Weather endpoint: `https://weather-alert-backend.onrender.com/api/weather/london`
+- Health check: `https://weather-alert-dashboard.onrender.com/api/health`
+- Root endpoint: `https://weather-alert-dashboard.onrender.com/`
+- Weather endpoint: `https://weather-alert-dashboard.onrender.com/api/weather/london`
 
 ### Frontend Deployment on Netlify
 
@@ -152,7 +152,7 @@ docker-compose up -d
 **Step 4: Deploy**
 1. Click "Deploy site"
 2. Wait for the deployment to complete
-3. Your frontend will be available at: `https://your-site-name.netlify.app`
+3. Your frontend will be available at: `https://eloquent-cuchufli-dbfc4f.netlify.app`
 
 **Step 5: Test Your Frontend Deployment**
 1. Open your Netlify site URL
@@ -167,7 +167,7 @@ docker-compose up -d
 **1. Test Backend Health Check:**
 ```bash
 # Visit your backend health endpoint
-curl https://weather-alert-backend.onrender.com/api/health
+curl https://weather-alert-dashboard.onrender.com/api/health
 
 # Expected response:
 {
@@ -189,7 +189,7 @@ curl https://weather-alert-backend.onrender.com/api/health
 **2. Test Weather Endpoint:**
 ```bash
 # Test weather API
-curl https://weather-alert-backend.onrender.com/api/weather/london
+curl https://weather-alert-dashboard.onrender.com/api/weather/london
 
 # Expected response:
 {
@@ -204,7 +204,7 @@ curl https://weather-alert-backend.onrender.com/api/weather/london
 **3. Test Root Endpoint:**
 ```bash
 # Test root endpoint
-curl https://weather-alert-backend.onrender.com/
+curl https://weather-alert-dashboard.onrender.com/
 
 # Expected response:
 {
@@ -228,20 +228,20 @@ curl https://weather-alert-backend.onrender.com/
 **2. Check Server Health:**
 ```javascript
 // In browser console, you should see:
-// "Checking server health at: https://weather-alert-backend.onrender.com/api"
+// "Checking server health at: https://weather-alert-dashboard.onrender.com/api"
 // "Server is healthy: {success: true, ...}"
 ```
 
 **3. Test API Calls:**
 ```javascript
 // Test health check from frontend
-fetch('https://weather-alert-backend.onrender.com/api/health')
+fetch('https://weather-alert-dashboard.onrender.com/api/health')
   .then(response => response.json())
   .then(data => console.log('Backend health:', data))
   .catch(error => console.error('Backend error:', error));
 
 // Test weather data fetch
-fetch('https://weather-alert-backend.onrender.com/api/weather/london')
+fetch('https://weather-alert-dashboard.onrender.com/api/weather/london')
   .then(response => response.json())
   .then(data => console.log('Weather data:', data))
   .catch(error => console.error('Weather error:', error));
@@ -387,10 +387,10 @@ open index.html
 curl http://localhost:3001/api/health
 
 # Render backend (replace with your URL)
-curl https://weather-alert-backend.onrender.com/api/health
+curl https://weather-alert-dashboard.onrender.com/api/health
 
 # Netlify frontend (replace with your URL)
-curl https://your-site-name.netlify.app
+curl https://eloquent-cuchufli-dbfc4f.netlify.app
 ```
 
 ## 📊 Performance
@@ -451,12 +451,12 @@ After deployment, your services will be available at:
 
 **Backend (Render):**
 ```
-RENDER_BACKEND_URL=https://weather-alert-backend.onrender.com
+RENDER_BACKEND_URL=https://weather-alert-dashboard.onrender.com
 ```
 
 **Frontend (Netlify):**
 ```
-NETLIFY_FRONTEND_URL=https://your-site-name.netlify.app
+NETLIFY_FRONTEND_URL=https://eloquent-cuchufli-dbfc4f.netlify.app
 ```
 
 The frontend automatically detects the environment and uses the correct API URL!
@@ -464,23 +464,23 @@ The frontend automatically detects the environment and uses the correct API URL!
 ## 🌐 Live Demo
 
 ### Backend API (Render)
-**Health Check:** https://weather-alert-backend.onrender.com/api/health
-**Weather Endpoint:** https://weather-alert-backend.onrender.com/api/weather/london
-**Root Endpoint:** https://weather-alert-backend.onrender.com/
+**Health Check:** https://weather-alert-dashboard.onrender.com/api/health
+**Weather Endpoint:** https://weather-alert-dashboard.onrender.com/api/weather/london
+**Root Endpoint:** https://weather-alert-dashboard.onrender.com/
 
 ### Frontend App (Netlify)
-**Live Application:** https://your-site-name.netlify.app
+**Live Application:** https://eloquent-cuchufli-dbfc4f.netlify.app
 
 ### Testing the Live Demo
 
 1. **Test Backend Health:**
    ```bash
-   curl https://weather-alert-backend.onrender.com/api/health
+   curl https://weather-alert-dashboard.onrender.com/api/health
    ```
 
 2. **Test Weather API:**
    ```bash
-   curl https://weather-alert-backend.onrender.com/api/weather/london
+   curl https://weather-alert-dashboard.onrender.com/api/weather/london
    ```
 
 3. **Test Frontend:**
