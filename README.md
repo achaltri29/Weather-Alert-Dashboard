@@ -460,3 +460,40 @@ NETLIFY_FRONTEND_URL=https://your-site-name.netlify.app
 ```
 
 The frontend automatically detects the environment and uses the correct API URL!
+
+## 🌐 Live Demo
+
+### Backend API (Render)
+**Health Check:** https://weather-alert-backend.onrender.com/api/health
+**Weather Endpoint:** https://weather-alert-backend.onrender.com/api/weather/london
+**Root Endpoint:** https://weather-alert-backend.onrender.com/
+
+### Frontend App (Netlify)
+**Live Application:** https://your-site-name.netlify.app
+
+### Testing the Live Demo
+
+1. **Test Backend Health:**
+   ```bash
+   curl https://weather-alert-backend.onrender.com/api/health
+   ```
+
+2. **Test Weather API:**
+   ```bash
+   curl https://weather-alert-backend.onrender.com/api/weather/london
+   ```
+
+3. **Test Frontend:**
+   - Visit the Netlify URL
+   - Open browser console (F12)
+   - Search for a city to verify API connectivity
+
+### Deployment Status
+- ✅ Backend deployed on Render
+- ✅ Frontend deployed on Netlify
+- ✅ CORS configured for cross-origin requests
+- ✅ API key validation implemented
+- ✅ Error handling and logging enabled
+- ✅ PWA features enabled
+- ✅ Responsive design tested
+
