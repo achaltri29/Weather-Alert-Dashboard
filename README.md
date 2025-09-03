@@ -53,7 +53,7 @@ A modern, responsive weather dashboard with real-time alerts, 5-day forecast, an
 
 
 
-## 🌍 Deployment
+## Deployment
 
 
 ### Backend Deployment on Render
