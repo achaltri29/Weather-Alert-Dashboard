@@ -24,7 +24,7 @@ class WeatherDashboard {
         } else {
             // Production - use deployed Render backend
             // Replace this with your actual Render backend URL
-            return 'https://weather-alert-backend.onrender.com/api';
+            return 'https://weather-alert-dashboard.onrender.com/api';
         }
     }
 
