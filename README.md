@@ -47,12 +47,6 @@ A modern, responsive weather dashboard with real-time alerts, 5-day forecast, an
 - **Responsive design** with mobile-first approach
 
 
-### Prerequisites
-- Node.js (v14 or higher)
-- OpenWeatherMap API key (free at [openweathermap.org](https://openweathermap.org/api))
-
-
-
 ## Deployment
 
 
