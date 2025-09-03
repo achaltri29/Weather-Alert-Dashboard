@@ -1,0 +1,16 @@
+services:
+  - type: web
+    name: weather-alert-backend
+    env: node
+    plan: free
+    buildCommand: npm install
+    startCommand: node server.js
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: OPENWEATHER_API_KEY
+        sync: false  # This will be set in Render dashboard
+    healthCheckPath: /api/health
+    autoDeploy: true
+    branch: main
+    rootDir: backend

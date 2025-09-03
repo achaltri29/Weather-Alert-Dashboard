@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Weather & Alert Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- PWA Manifest -->
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#3b82f6">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-title" content="Weather Dashboard">
+    
+    <!-- Icons for PWA -->
+    <link rel="apple-touch-icon" href="icons/icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="icons/icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="512x512" href="icons/icon-512x512.png">
+</head>
+<body>
+    <div class="app">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-content">
+                <h1 class="app-title">
+                    <i class="fas fa-cloud-sun"></i>
+                    Smart Weather Dashboard
+                </h1>
+                <div class="header-controls">
+                    <button id="favoriteBtn" class="favorite-btn" title="Add to favorites">
+                        <i class="far fa-star"></i>
+                    </button>
+                    <button id="exportBtn" class="export-btn" title="Export to PDF">
+                        <i class="fas fa-download"></i>
+                    </button>
+                    <button id="compareBtn" class="compare-btn" title="Compare Cities">
+                        Compare Cities
+                    </button>
+                    <button id="themeToggle" class="theme-toggle" title="Toggle Dark/Light Mode">
+                        <i class="fas fa-moon"></i>
+                    </button>
+                </div>
+            </div>
+        </header>
+
+        <!-- Search Section -->
+        <section class="search-section">
+            <div class="search-container">
+                <div class="search-box">
+                    <input type="text" id="cityInput" placeholder="Enter city name..." autocomplete="off">
+                    <button id="searchBtn" class="search-btn">
+                        <i class="fas fa-search"></i>
+                    </button>
+                </div>
+                <div id="errorMessage" class="error-message"></div>
+                
+                <!-- Recent Cities -->
+                <div class="recent-cities">
+                    <h3>Recent Cities</h3>
+                    <div id="recentCities" class="recent-cities-list">
+                        <!-- Recent cities will be populated here -->
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Compare Section -->
+        <section id="compareSection" class="compare-section" style="display: none;">
+            <div class="compare-container">
+                <h2>Compare Cities</h2>
+                <div class="compare-inputs">
+                    <input type="text" id="compareCity1" placeholder="First city..." autocomplete="off">
+                    <input type="text" id="compareCity2" placeholder="Second city..." autocomplete="off">
+                    <button id="compareSearchBtn" class="compare-search-btn">
+                        <i class="fas fa-balance-scale"></i>
+                        Compare
+                    </button>
+                </div>
+                <div id="comparisonResults" class="comparison-results">
+                    <!-- Comparison results will be populated here -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Loading Spinner -->
+        <div id="loadingSpinner" class="loading-spinner">
+            <div class="spinner"></div>
+            <p>Fetching weather data...</p>
+        </div>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Current Weather Card -->
+            <section id="currentWeather" class="weather-section">
+                <div class="weather-card current-weather">
+                    <div class="weather-header">
+                        <h2>Current Weather</h2>
+                        <div class="location-info">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span id="currentLocation"></span>
+                        </div>
+                    </div>
+                    <div class="weather-content">
+                        <div class="weather-main">
+                            <div class="temperature">
+                                <span id="currentTemp"></span>
+                                <span class="unit">°C</span>
+                            </div>
+                            <div class="weather-icon">
+                                <i id="currentIcon" class="fas"></i>
+                            </div>
+                        </div>
+                        <div class="weather-details">
+                            <div class="detail-item">
+                                <i class="fas fa-eye"></i>
+                                <span>Feels like</span>
+                                <span id="feelsLike"></span>
+                            </div>
+                            <div class="detail-item">
+                                <i class="fas fa-tint"></i>
+                                <span>Humidity</span>
+                                <span id="humidity"></span>
+                            </div>
+                            <div class="detail-item">
+                                <i class="fas fa-wind"></i>
+                                <span>Wind</span>
+                                <span id="windSpeed"></span>
+                            </div>
+                            <div class="detail-item">
+                                <i class="fas fa-thermometer-half"></i>
+                                <span>Pressure</span>
+                                <span id="pressure"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Weather Alerts -->
+            <section id="weatherAlerts" class="alerts-section">
+                <h2>Weather Alerts</h2>
+                <div id="alertsContainer" class="alerts-container">
+                    <!-- Alerts will be populated here -->
+                </div>
+            </section>
+
+            <!-- 5-Day Forecast -->
+            <section id="forecast" class="forecast-section">
+                <h2>5-Day Forecast</h2>
+                <div id="forecastContainer" class="forecast-container">
+                    <!-- Forecast cards will be populated here -->
+                </div>
+            </section>
+
+            <!-- Interactive Map -->
+            <section id="mapSection" class="map-section">
+                <h2>Weather Map</h2>
+                <div class="map-controls">
+                    <button id="resizeMap" class="resize-btn">
+                        <i class="fas fa-expand-arrows-alt"></i>
+                        Toggle Full Width
+                    </button>
+                </div>
+                <div id="weatherMap" class="weather-map">
+                    <iframe 
+                        id="mapFrame"
+                        src="https://openweathermap.org/weathermap?basemap=map&cities=true&layer=temperature&lat=0&lon=0&zoom=2"
+                        frameborder="0">
+                    </iframe>
+                </div>
+            </section>
+        </main>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p>&copy; 2024 Smart Weather Dashboard. Data provided by OpenWeatherMap.</p>
+            <p class="pwa-install">📱 Install this app on your device for offline access!</p>
+        </footer>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
