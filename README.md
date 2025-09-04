@@ -15,7 +15,6 @@ A modern, responsive weather dashboard with real-time alerts, 5-day forecast, an
 - **Responsive Design** - Works on desktop, tablet, and mobile
 - **Loading States** - Spinner during data fetch
 - **Error Handling** - Network errors, city not found, rate limiting
-- **Beautiful UI** - Modern design with gradients, shadows, and smooth animations
 
 ### Advanced Features
 - **Recent Cities** - Last 5 searched cities stored in localStorage
@@ -88,7 +87,6 @@ weatheralertdashboard/
 ├── render.yaml          # Render deployment configuration
 ├── netlify.toml         # Netlify deployment configuration
 ├── docker-compose.yml   # Full stack Docker setup
-├── DEPLOYMENT.md       # Comprehensive deployment guide
 └── README.md          # This file
 ```
 
