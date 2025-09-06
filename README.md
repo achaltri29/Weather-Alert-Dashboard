@@ -51,17 +51,17 @@ A modern, responsive weather dashboard with real-time alerts, 5-day forecast, an
 
 ### Backend Deployment on Render
 
-The backend is available at: `https://weather-alert-dashboard.onrender.com`
+The backend is available at: https://weather-alert-dashboard.onrender.com
 
 **Test the Backend Deployment**
-- Health check: `https://weather-alert-dashboard.onrender.com/api/health`
-- Root endpoint: `https://weather-alert-dashboard.onrender.com/`
-- Weather endpoint: `https://weather-alert-dashboard.onrender.com/api/weather/london`
+- Health check: https://weather-alert-dashboard.onrender.com/api/health
+- Root endpoint: https://weather-alert-dashboard.onrender.com/
+- Weather endpoint: https://weather-alert-dashboard.onrender.com/api/weather/london
 
 
 ### Frontend Deployment on Netlify
 
-The frontend is available at: `https://eloquent-cuchufli-dbfc4f.netlify.app`
+The frontend is available at: https://eloquent-cuchufli-dbfc4f.netlify.app
 
 
 
